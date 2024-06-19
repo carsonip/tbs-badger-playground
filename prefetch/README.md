@@ -27,45 +27,65 @@ e.g.
 ./prefetch run -dir foo -prefetch=false -hit=false
 ```
 
+or to run all, use
+```shell
+./run.sh
+```
+
 ## Results
 
 ```
-$ ./prefetch run -dir foo -prefetch=true -hit=false | grep Mapped:
-badger 2024/06/19 16:11:20 INFO: All 2 tables opened in 15ms
-badger 2024/06/19 16:11:20 INFO: Replaying file id: 26 at offset: 60607284
-badger 2024/06/19 16:11:20 INFO: Replay took: 1.881µs
-2024/06/19 16:11:22 0 values read
-Mapped:          3385780 kB     ->      Mapped:          5182740 kB     =       1796960 kB
+$ ./run.sh
++ ./prefetch run -dir foo -prefetch=false -hit=false
++ grep Mapped:
+badger 2024/06/19 16:20:30 INFO: All 2 tables opened in 36ms
+badger 2024/06/19 16:20:30 INFO: Replaying file id: 26 at offset: 60607284
+badger 2024/06/19 16:20:30 INFO: Replay took: 3.389µs
+2024/06/19 16:20:30 0 values read
+Mapped:          3388184 kB     ->      Mapped:          3424140 kB     =       35956 kB
 ShmemPmdMapped:        0 kB     ->      ShmemPmdMapped:        0 kB     =       0 kB
 FilePmdMapped:         0 kB     ->      FilePmdMapped:         0 kB     =       0 kB
-```
-```
-$ ./prefetch run -dir foo -prefetch=false -hit=false | grep Mapped:
-badger 2024/06/19 16:11:34 INFO: All 2 tables opened in 15ms
-badger 2024/06/19 16:11:34 INFO: Replaying file id: 26 at offset: 60607284
-badger 2024/06/19 16:11:34 INFO: Replay took: 2.842µs
-2024/06/19 16:11:34 0 values read
-Mapped:          3386096 kB     ->      Mapped:          3421428 kB     =       35332 kB
+
+real    0m0.110s
+user    0m0.108s
+sys     0m0.020s
++ grep Mapped:
++ ./prefetch run -dir foo -prefetch=true -hit=false
+badger 2024/06/19 16:20:30 INFO: All 2 tables opened in 24ms
+badger 2024/06/19 16:20:30 INFO: Replaying file id: 26 at offset: 60607284
+badger 2024/06/19 16:20:30 INFO: Replay took: 3.114µs
+2024/06/19 16:20:32 0 values read
+Mapped:          3388184 kB     ->      Mapped:          5185212 kB     =       1797028 kB
 ShmemPmdMapped:        0 kB     ->      ShmemPmdMapped:        0 kB     =       0 kB
 FilePmdMapped:         0 kB     ->      FilePmdMapped:         0 kB     =       0 kB
-```
-```
-$ ./prefetch run -dir foo -prefetch=false -hit=true | grep Mapped:
-badger 2024/06/19 16:12:18 INFO: All 2 tables opened in 15ms
-badger 2024/06/19 16:12:18 INFO: Replaying file id: 26 at offset: 60607284
-badger 2024/06/19 16:12:18 INFO: Replay took: 1.845µs
-2024/06/19 16:12:19 891000 values read
-Mapped:          3389064 kB     ->      Mapped:          5190016 kB     =       1800952 kB
+
+real    0m2.021s
+user    0m4.420s
+sys     0m0.890s
++ ./prefetch run -dir foo -prefetch=false -hit=true
++ grep Mapped:
+badger 2024/06/19 16:20:32 INFO: All 2 tables opened in 18ms
+badger 2024/06/19 16:20:32 INFO: Replaying file id: 26 at offset: 60607284
+badger 2024/06/19 16:20:32 INFO: Replay took: 3.054µs
+2024/06/19 16:20:33 891000 values read
+Mapped:          3390324 kB     ->      Mapped:          5188940 kB     =       1798616 kB
 ShmemPmdMapped:        0 kB     ->      ShmemPmdMapped:        0 kB     =       0 kB
 FilePmdMapped:         0 kB     ->      FilePmdMapped:         0 kB     =       0 kB
-```
-```
-$ ./prefetch run -dir foo -prefetch=true -hit=true | grep Mapped:
-badger 2024/06/19 16:12:33 INFO: All 2 tables opened in 23ms
-badger 2024/06/19 16:12:33 INFO: Replaying file id: 26 at offset: 60607284
-badger 2024/06/19 16:12:33 INFO: Replay took: 2.967µs
-2024/06/19 16:12:36 891000 values read
-Mapped:          3389196 kB     ->      Mapped:          5187340 kB     =       1798144 kB
+
+real    0m1.055s
+user    0m0.742s
+sys     0m0.330s
++ ./prefetch run -dir foo -prefetch=true -hit=true
++ grep Mapped:
+badger 2024/06/19 16:20:33 INFO: All 2 tables opened in 21ms
+badger 2024/06/19 16:20:33 INFO: Replaying file id: 26 at offset: 60607284
+badger 2024/06/19 16:20:33 INFO: Replay took: 3.321µs
+2024/06/19 16:20:36 891000 values read
+Mapped:          3388452 kB     ->      Mapped:          5190184 kB     =       1801732 kB
 ShmemPmdMapped:        0 kB     ->      ShmemPmdMapped:        0 kB     =       0 kB
 FilePmdMapped:         0 kB     ->      FilePmdMapped:         0 kB     =       0 kB
+
+real    0m3.174s
+user    0m6.845s
+sys     0m1.159s
 ```

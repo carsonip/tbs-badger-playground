@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/dgraph-io/badger/v2"
 	"log"
 	"math/rand"
 	"os"
+
+	"github.com/dgraph-io/badger/v2"
 )
 
 const (

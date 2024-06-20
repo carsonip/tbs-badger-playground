@@ -2,8 +2,9 @@ package main
 
 import (
 	"flag"
-	"github.com/dgraph-io/badger/v2"
 	"log"
+
+	"github.com/dgraph-io/badger/v2"
 )
 
 func main() {
@@ -49,5 +50,4 @@ func main() {
 	default:
 		log.Fatalf("Unrecognized command %q", cmd)
 	}
-
 }

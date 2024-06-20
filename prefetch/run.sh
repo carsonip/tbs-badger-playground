@@ -17,9 +17,11 @@ function run() {
 }
 
 rm -rf ./run_*/
-run false false
-run true false
-run hybrid false
-run false true
-run true true
-run hybrid true
+
+for HIT in false true
+do
+    for PREFETCH in false true hybrid
+    do
+        run $PREFETCH $HIT
+    done
+done

@@ -4,7 +4,7 @@ import (
 	"flag"
 	"log"
 
-	"github.com/dgraph-io/badger/v2"
+	"github.com/dgraph-io/badger/v4"
 )
 
 func main() {
@@ -38,7 +38,7 @@ func main() {
 		var db *badger.DB
 		var err error
 		memdiff(func() {
-			db, err = openBadger(*dir, 0)
+			db, err = openBadger(*dir, 0, true)
 			if err != nil {
 				log.Fatal(err)
 			}

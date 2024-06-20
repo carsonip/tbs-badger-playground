@@ -6,14 +6,14 @@ import (
 	"math/rand"
 	"os"
 
-	"github.com/dgraph-io/badger/v2"
+	"github.com/dgraph-io/badger/v4"
 )
 
 const (
 	defaultValueLogFileSize = 64 * 1024 * 1024
 )
 
-func openBadger(storageDir string, valueLogFileSize int64) (*badger.DB, error) {
+func openBadger(storageDir string, valueLogFileSize int64, readOnly bool) (*badger.DB, error) {
 	// Tunable memory options:
 	//  - NumMemtables - default 5 in-mem tables (MaxTableSize default)
 	//  - NumLevelZeroTables - default 5 - number of L0 tables before compaction starts.
@@ -25,12 +25,13 @@ func openBadger(storageDir string, valueLogFileSize int64) (*badger.DB, error) {
 	}
 	const tableLimit = 4
 	badgerOpts := badger.DefaultOptions(storageDir).
-		WithTruncate(true).                          // Truncate unreadable files which cannot be read.
 		WithNumMemtables(tableLimit).                // in-memory tables.
 		WithNumLevelZeroTables(tableLimit).          // L0 tables.
 		WithNumLevelZeroTablesStall(tableLimit * 3). // Maintain the default 1-to-3 ratio before stalling.
-		WithMaxTableSize(int64(16 << 20)).           // Max LSM table or file size.
-		WithValueLogFileSize(valueLogFileSize)       // vlog file size.
+		WithBaseTableSize(int64(16 << 20)).          // Max LSM table or file size.
+		WithValueLogFileSize(valueLogFileSize).      // vlog file size.
+		WithCompactL0OnClose(!readOnly).
+		WithReadOnly(readOnly)
 
 	return badger.Open(badgerOpts)
 }
@@ -59,7 +60,7 @@ func setup(dir string) {
 	if err := os.MkdirAll(dir, os.ModePerm); err != nil {
 		log.Fatal(err)
 	}
-	db, err := openBadger(dir, 0)
+	db, err := openBadger(dir, 0, false)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -71,10 +72,13 @@ func setup(dir string) {
 	if err := db.Close(); err != nil {
 		log.Fatal(err)
 	}
-	db, err = openBadger(dir, 0)
+	db, err = openBadger(dir, 0, false)
 	if err != nil {
 		log.Fatal(err)
 	}
 	lsm, vlog := db.Size()
 	fmt.Printf("lsm size: %d vlog size: %d\n", lsm, vlog)
+	if err := db.Close(); err != nil {
+		log.Fatal(err)
+	}
 }

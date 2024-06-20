@@ -1,6 +1,10 @@
 # Prefetch
 
-This experiment shows the effect of iterator prefetch on memory usage.
+This experiment shows the effect of iterator prefetch on resource usage.
+
+Setup: creates a database with keys which consists of 2 parts. The first part, which mimics a trace ID in TBS, ranges from 10000 to 99990, at increments of 10, i.e. 10000, 10010, ..., 99980, 99990. The second part, which mimics a transaction ID / span ID, ranges from 1000 to 9900, at increments of 100, i.e. 1000, 1100, ..., 9800, 9900. The total number of combinations are 9000 * 90 = 810000 keys.
+
+Run: searches for the KV in the database using a key prefix, i.e. the first part of the key, and it will either always hit when `-hit=true` or always miss when `-hit=false`. Observe the memory / disk IO footprint on different `-prefetch` settings.
 
 ## Run
 
@@ -20,7 +24,7 @@ Creates an example database of size ~2GB.
 
 ### Run
 
-Observe memory usage with various flags `-prefetch`, `-hit`, `-open-only`.
+Flags available are `-prefetch`, `-hit`, `-open-only`.
 
 e.g. 
 ```shell
@@ -34,7 +38,7 @@ sudo ./run.sh
 
 ## Results
 
-Command:
+Command (running and stripping out ANSI escape codes):
 ```shell
 sudo ./run.sh 2>&1 | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g" > run.out
 ```

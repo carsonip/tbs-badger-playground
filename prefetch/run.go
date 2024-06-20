@@ -8,7 +8,15 @@ import (
 
 const valueSize = 2000
 
-func run(db *badger.DB, prefetch, hit, openOnly bool) {
+type prefetchValue int
+
+const (
+	falsePrefetch prefetchValue = iota
+	truePrefetch
+	hybridPrefetch
+)
+
+func run(db *badger.DB, prefetch prefetchValue, hit bool) {
 	var cnt int
 	txn := db.NewTransaction(false)
 	for k := 1000; k < 100000; k += 10 {
@@ -25,11 +33,22 @@ func run(db *badger.DB, prefetch, hit, openOnly bool) {
 	log.Printf("%d values read", cnt)
 }
 
-func read(txn *badger.Txn, prefetch bool, first int) (int, error) {
+func read(txn *badger.Txn, prefetch prefetchValue, first int) (int, error) {
 	opts := badger.DefaultIteratorOptions
-	opts.PrefetchValues = prefetch
 	opts.Prefix = []byte(fmt.Sprintf("%d:", first))
 
+	if prefetch == hybridPrefetch {
+		opts.PrefetchValues = false
+		iter := txn.NewIterator(opts)
+		iter.Rewind()
+		if !iter.Valid() {
+			iter.Close()
+			return 0, nil
+		}
+		iter.Close()
+	}
+
+	opts.PrefetchValues = prefetch == truePrefetch || prefetch == hybridPrefetch
 	iter := txn.NewIterator(opts)
 	defer iter.Close()
 	var cnt int

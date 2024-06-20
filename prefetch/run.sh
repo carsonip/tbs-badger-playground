@@ -19,5 +19,7 @@ function run() {
 rm -rf ./run_*/
 run false false
 run true false
+run hybrid false
 run false true
 run true true
+run hybrid true

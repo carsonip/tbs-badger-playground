@@ -28,7 +28,7 @@ func main() {
 	case "run":
 		flag := flag.NewFlagSet("run", flag.ExitOnError)
 		var (
-			prefetch = flag.Bool("prefetch", false, "enable prefetch")
+			prefetch = flag.String("prefetch", "false", "prefetch behavior; possible values: false, true, hybrid")
 			hit      = flag.Bool("hit", false, "search for key that exists")
 			dir      = flag.String("dir", ".", "badger storage dir")
 			openOnly = flag.Bool("open-only", false, "open db without reading; ignores -prefetch and -hit")
@@ -45,7 +45,16 @@ func main() {
 			if *openOnly {
 				return
 			}
-			run(db, *prefetch, *hit, *openOnly)
+			var prefetchVal prefetchValue
+			switch *prefetch {
+			case "false":
+				prefetchVal = falsePrefetch
+			case "true":
+				prefetchVal = truePrefetch
+			case "hybrid":
+				prefetchVal = hybridPrefetch
+			}
+			run(db, prefetchVal, *hit)
 		})
 	default:
 		log.Fatalf("Unrecognized command %q", cmd)

@@ -77,4 +77,7 @@ func setup(dir string) {
 	}
 	lsm, vlog := db.Size()
 	fmt.Printf("lsm size: %d vlog size: %d\n", lsm, vlog)
+	if err := db.Close(); err != nil {
+		log.Fatal(err)
+	}
 }

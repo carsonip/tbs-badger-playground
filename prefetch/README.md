@@ -45,54 +45,189 @@ sudo ./run.sh 2>&1 | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g" > ru
 
 Output:
 ```
-=== ./prefetch run -dir foo -prefetch=false -hit=false
-Running scope as unit: run-rb397772b79704fe3a0ca598af08d03a7.scope
-badger 2024/06/20 22:47:26 INFO: All 2 tables opened in 26ms
-badger 2024/06/20 22:47:26 INFO: Replaying file id: 26 at offset: 60607284
-badger 2024/06/20 22:47:26 INFO: Replay took: 8.873µs
-2024/06/20 22:47:26 0 values read
+=== ./prefetch run -dir baz -prefetch=false -hit=false
+Running scope as unit: run-rf5e886f5558f44cd84a49c6563a261dc.scope
+badger 2024/06/25 15:18:37 INFO: All 33 tables opened in 20ms
+badger 2024/06/25 15:18:37 INFO: Discard stats nextEmptySlot: 0
+badger 2024/06/25 15:18:37 INFO: Set nextTxnTs to 9900
+badger 2024/06/25 15:18:37 INFO: Deleting empty file: baz/000001.vlog
+2024/06/25 15:18:39 0 values read
 MemTotal:       65496312 kB	->	MemTotal:       65496312 kB	=	0 kB
-MemFree:        19966060 kB	->	MemFree:        19871840 kB	=	-94220 kB
-MemAvailable:   31131728 kB	->	MemAvailable:   31103544 kB	=	-28184 kB
-Buffers:          249464 kB	->	Buffers:          273448 kB	=	23984 kB
-Cached:          6811036 kB	->	Cached:          6852620 kB	=	41584 kB
+MemFree:        12722644 kB	->	MemFree:        11544208 kB	=	-1178436 kB
+MemAvailable:   21442476 kB	->	MemAvailable:   21269064 kB	=	-173412 kB
+Buffers:            3276 kB	->	Buffers:            3876 kB	=	600 kB
+Cached:          6725020 kB	->	Cached:          7729780 kB	=	1004760 kB
 SwapCached:            0 kB	->	SwapCached:            0 kB	=	0 kB
-Active:         20119892 kB	->	Active:         20173692 kB	=	53800 kB
-Inactive:       13121348 kB	->	Inactive:       13149448 kB	=	28100 kB
-Active(anon):   17930676 kB	->	Active(anon):   17946540 kB	=	15864 kB
-Inactive(anon): 11604516 kB	->	Inactive(anon): 11604516 kB	=	0 kB
-Active(file):    2189216 kB	->	Active(file):    2227152 kB	=	37936 kB
-Inactive(file):  1516832 kB	->	Inactive(file):  1544932 kB	=	28100 kB
-Unevictable:     2575644 kB	->	Unevictable:     2575644 kB	=	0 kB
+Active:         24315836 kB	->	Active:         25489064 kB	=	1173228 kB
+Inactive:       17335712 kB	->	Inactive:       17354044 kB	=	18332 kB
+Active(anon):   22889440 kB	->	Active(anon):   23075980 kB	=	186540 kB
+Inactive(anon): 16013020 kB	->	Inactive(anon): 16013016 kB	=	-4 kB
+Active(file):    1426396 kB	->	Active(file):    2413084 kB	=	986688 kB
+Inactive(file):  1322692 kB	->	Inactive(file):  1341028 kB	=	18336 kB
+Unevictable:     2794420 kB	->	Unevictable:     2794328 kB	=	-92 kB
 Mlocked:             376 kB	->	Mlocked:             376 kB	=	0 kB
 SwapTotal:             0 kB	->	SwapTotal:             0 kB	=	0 kB
 SwapFree:              0 kB	->	SwapFree:              0 kB	=	0 kB
 Zswap:                 0 kB	->	Zswap:                 0 kB	=	0 kB
 Zswapped:              0 kB	->	Zswapped:              0 kB	=	0 kB
-Dirty:             35684 kB	->	Dirty:             36116 kB	=	432 kB
+Dirty:              4200 kB	->	Dirty:              4312 kB	=	112 kB
+Writeback:           164 kB	->	Writeback:             4 kB	=	-160 kB
+AnonPages:      37707164 kB	->	AnonPages:      37894544 kB	=	187380 kB
+Mapped:          3103232 kB	->	Mapped:          3730496 kB	=	627264 kB
+Shmem:           4122784 kB	->	Shmem:           4122684 kB	=	-100 kB
+KReclaimable:    6702084 kB	->	KReclaimable:    6702084 kB	=	0 kB
+Slab:            7499564 kB	->	Slab:            7499564 kB	=	0 kB
+SReclaimable:    6702084 kB	->	SReclaimable:    6702084 kB	=	0 kB
+SUnreclaim:       797480 kB	->	SUnreclaim:       797480 kB	=	0 kB
+KernelStack:       90576 kB	->	KernelStack:       90816 kB	=	240 kB
+PageTables:       285920 kB	->	PageTables:       288464 kB	=	2544 kB
+SecPageTables:         0 kB	->	SecPageTables:         0 kB	=	0 kB
+NFS_Unstable:          0 kB	->	NFS_Unstable:          0 kB	=	0 kB
+Bounce:                0 kB	->	Bounce:                0 kB	=	0 kB
+WritebackTmp:          0 kB	->	WritebackTmp:          0 kB	=	0 kB
+CommitLimit:    32748156 kB	->	CommitLimit:    32748156 kB	=	0 kB
+Committed_AS:   70912300 kB	->	Committed_AS:   71227628 kB	=	315328 kB
+VmallocTotal:   34359738367 kB	->	VmallocTotal:   34359738367 kB	=	0 kB
+VmallocUsed:      237660 kB	->	VmallocUsed:      237868 kB	=	208 kB
+VmallocChunk:          0 kB	->	VmallocChunk:          0 kB	=	0 kB
+Percpu:            32960 kB	->	Percpu:            32960 kB	=	0 kB
+HardwareCorrupted:     0 kB	->	HardwareCorrupted:     0 kB	=	0 kB
+AnonHugePages:     79872 kB	->	AnonHugePages:     79872 kB	=	0 kB
+ShmemHugePages:  1304576 kB	->	ShmemHugePages:  1304576 kB	=	0 kB
+ShmemPmdMapped:        0 kB	->	ShmemPmdMapped:        0 kB	=	0 kB
+FileHugePages:         0 kB	->	FileHugePages:         0 kB	=	0 kB
+FilePmdMapped:         0 kB	->	FilePmdMapped:         0 kB	=	0 kB
+Unaccepted:            0 kB	->	Unaccepted:            0 kB	=	0 kB
+HugePages_Total:       0	->	HugePages_Total:       0	=	0 
+HugePages_Free:        0	->	HugePages_Free:        0	=	0 
+HugePages_Rsvd:        0	->	HugePages_Rsvd:        0	=	0 
+HugePages_Surp:        0	->	HugePages_Surp:        0	=	0 
+Hugepagesize:       2048 kB	->	Hugepagesize:       2048 kB	=	0 kB
+Hugetlb:               0 kB	->	Hugetlb:               0 kB	=	0 kB
+DirectMap4k:      684064 kB	->	DirectMap4k:      684064 kB	=	0 kB
+DirectMap2M:    30429184 kB	->	DirectMap2M:    30429184 kB	=	0 kB
+DirectMap1G:    35651584 kB	->	DirectMap1G:    35651584 kB	=	0 kB
+0.39user 0.58system 0:02.30elapsed 42%CPU (0avgtext+0avgdata 765568maxresident)k
+1908352inputs+0outputs (4670major+41716minor)pagefaults 0swaps
+259:0 rbytes=977088512 wbytes=0 rios=4882 wios=0 dbytes=0 dios=0
+252:0 rbytes=977088512 wbytes=0 rios=4882 wios=0 dbytes=0 dios=0
+252:1 rbytes=977088512 wbytes=0 rios=4882 wios=0 dbytes=0 dios=0
+===
+=== ./prefetch run -dir baz -prefetch=true -hit=false
+Running scope as unit: run-r52bda7296820493ca4b94a22d3811da8.scope
+badger 2024/06/25 15:18:42 INFO: All 33 tables opened in 18ms
+badger 2024/06/25 15:18:42 INFO: Discard stats nextEmptySlot: 0
+badger 2024/06/25 15:18:42 INFO: Set nextTxnTs to 9900
+2024/06/25 15:18:47 0 values read
+MemTotal:       65496312 kB	->	MemTotal:       65496312 kB	=	0 kB
+MemFree:        12744156 kB	->	MemFree:        11101232 kB	=	-1642924 kB
+MemAvailable:   21459496 kB	->	MemAvailable:   20845032 kB	=	-614464 kB
+Buffers:            2656 kB	->	Buffers:            3420 kB	=	764 kB
+Cached:          6728988 kB	->	Cached:          7779092 kB	=	1050104 kB
+SwapCached:            0 kB	->	SwapCached:            0 kB	=	0 kB
+Active:         24322548 kB	->	Active:         25929044 kB	=	1606496 kB
+Inactive:       17315184 kB	->	Inactive:       17337956 kB	=	22772 kB
+Active(anon):   22879544 kB	->	Active(anon):   23480336 kB	=	600792 kB
+Inactive(anon): 16013016 kB	->	Inactive(anon): 16013016 kB	=	0 kB
+Active(file):    1443004 kB	->	Active(file):    2448708 kB	=	1005704 kB
+Inactive(file):  1302168 kB	->	Inactive(file):  1324940 kB	=	22772 kB
+Unevictable:     2794264 kB	->	Unevictable:     2815908 kB	=	21644 kB
+Mlocked:             376 kB	->	Mlocked:             376 kB	=	0 kB
+SwapTotal:             0 kB	->	SwapTotal:             0 kB	=	0 kB
+SwapFree:              0 kB	->	SwapFree:              0 kB	=	0 kB
+Zswap:                 0 kB	->	Zswap:                 0 kB	=	0 kB
+Zswapped:              0 kB	->	Zswapped:              0 kB	=	0 kB
+Dirty:              5152 kB	->	Dirty:              5240 kB	=	88 kB
+Writeback:             0 kB	->	Writeback:           120 kB	=	120 kB
+AnonPages:      37690580 kB	->	AnonPages:      38291704 kB	=	601124 kB
+Mapped:          3105856 kB	->	Mapped:          4068056 kB	=	962200 kB
+Shmem:           4129860 kB	->	Shmem:           4151448 kB	=	21588 kB
+KReclaimable:    6701508 kB	->	KReclaimable:    6701492 kB	=	-16 kB
+Slab:            7498964 kB	->	Slab:            7498916 kB	=	-48 kB
+SReclaimable:    6701508 kB	->	SReclaimable:    6701492 kB	=	-16 kB
+SUnreclaim:       797456 kB	->	SUnreclaim:       797424 kB	=	-32 kB
+KernelStack:       90528 kB	->	KernelStack:       90944 kB	=	416 kB
+PageTables:       285904 kB	->	PageTables:       289400 kB	=	3496 kB
+SecPageTables:         0 kB	->	SecPageTables:         0 kB	=	0 kB
+NFS_Unstable:          0 kB	->	NFS_Unstable:          0 kB	=	0 kB
+Bounce:                0 kB	->	Bounce:                0 kB	=	0 kB
+WritebackTmp:          0 kB	->	WritebackTmp:          0 kB	=	0 kB
+CommitLimit:    32748156 kB	->	CommitLimit:    32748156 kB	=	0 kB
+Committed_AS:   70928156 kB	->	Committed_AS:   72010568 kB	=	1082412 kB
+VmallocTotal:   34359738367 kB	->	VmallocTotal:   34359738367 kB	=	0 kB
+VmallocUsed:      237596 kB	->	VmallocUsed:      238124 kB	=	528 kB
+VmallocChunk:          0 kB	->	VmallocChunk:          0 kB	=	0 kB
+Percpu:            32960 kB	->	Percpu:            32960 kB	=	0 kB
+HardwareCorrupted:     0 kB	->	HardwareCorrupted:     0 kB	=	0 kB
+AnonHugePages:     79872 kB	->	AnonHugePages:     79872 kB	=	0 kB
+ShmemHugePages:  1304576 kB	->	ShmemHugePages:  1320960 kB	=	16384 kB
+ShmemPmdMapped:        0 kB	->	ShmemPmdMapped:        0 kB	=	0 kB
+FileHugePages:         0 kB	->	FileHugePages:         0 kB	=	0 kB
+FilePmdMapped:         0 kB	->	FilePmdMapped:         0 kB	=	0 kB
+Unaccepted:            0 kB	->	Unaccepted:            0 kB	=	0 kB
+HugePages_Total:       0	->	HugePages_Total:       0	=	0 
+HugePages_Free:        0	->	HugePages_Free:        0	=	0 
+HugePages_Rsvd:        0	->	HugePages_Rsvd:        0	=	0 
+HugePages_Surp:        0	->	HugePages_Surp:        0	=	0 
+Hugepagesize:       2048 kB	->	Hugepagesize:       2048 kB	=	0 kB
+Hugetlb:               0 kB	->	Hugetlb:               0 kB	=	0 kB
+DirectMap4k:      684064 kB	->	DirectMap4k:      684064 kB	=	0 kB
+DirectMap2M:    30429184 kB	->	DirectMap2M:    30429184 kB	=	0 kB
+DirectMap1G:    35651584 kB	->	DirectMap1G:    35651584 kB	=	0 kB
+9.14user 1.59system 0:04.67elapsed 229%CPU (0avgtext+0avgdata 1567500maxresident)k
+1974376inputs+0outputs (5627major+168499minor)pagefaults 0swaps
+259:0 rbytes=1010892800 wbytes=0 rios=4670 wios=0 dbytes=0 dios=0
+252:0 rbytes=1010892800 wbytes=0 rios=4670 wios=0 dbytes=0 dios=0
+252:1 rbytes=1010892800 wbytes=0 rios=4670 wios=0 dbytes=0 dios=0
+===
+=== ./prefetch run -dir baz -prefetch=hybrid -hit=false
+Running scope as unit: run-rd9d7c0095a394977b6910287fbd7f86b.scope
+badger 2024/06/25 15:18:50 INFO: All 33 tables opened in 18ms
+badger 2024/06/25 15:18:50 INFO: Discard stats nextEmptySlot: 0
+badger 2024/06/25 15:18:50 INFO: Set nextTxnTs to 9900
+2024/06/25 15:18:52 0 values read
+MemTotal:       65496312 kB	->	MemTotal:       65496312 kB	=	0 kB
+MemFree:        12753132 kB	->	MemFree:        11589264 kB	=	-1163868 kB
+MemAvailable:   21460960 kB	->	MemAvailable:   21328392 kB	=	-132568 kB
+Buffers:            2632 kB	->	Buffers:            6492 kB	=	3860 kB
+Cached:          6732676 kB	->	Cached:          7758852 kB	=	1026176 kB
+SwapCached:            0 kB	->	SwapCached:            0 kB	=	0 kB
+Active:         24293572 kB	->	Active:         25427224 kB	=	1133652 kB
+Inactive:       17311572 kB	->	Inactive:       17356288 kB	=	44716 kB
+Active(anon):   22854408 kB	->	Active(anon):   23001476 kB	=	147068 kB
+Inactive(anon): 16013016 kB	->	Inactive(anon): 16013016 kB	=	0 kB
+Active(file):    1439164 kB	->	Active(file):    2425748 kB	=	986584 kB
+Inactive(file):  1298556 kB	->	Inactive(file):  1343272 kB	=	44716 kB
+Unevictable:     2808856 kB	->	Unevictable:     2804656 kB	=	-4200 kB
+Mlocked:             376 kB	->	Mlocked:             376 kB	=	0 kB
+SwapTotal:             0 kB	->	SwapTotal:             0 kB	=	0 kB
+SwapFree:              0 kB	->	SwapFree:              0 kB	=	0 kB
+Zswap:                 0 kB	->	Zswap:                 0 kB	=	0 kB
+Zswapped:              0 kB	->	Zswapped:              0 kB	=	0 kB
+Dirty:              5620 kB	->	Dirty:              5236 kB	=	-384 kB
 Writeback:             0 kB	->	Writeback:             0 kB	=	0 kB
-AnonPages:      28756192 kB	->	AnonPages:      28771864 kB	=	15672 kB
-Mapped:          3696776 kB	->	Mapped:          3730296 kB	=	33520 kB
-Shmem:           3499848 kB	->	Shmem:           3499844 kB	=	-4 kB
-KReclaimable:    8190960 kB	->	KReclaimable:    8190960 kB	=	0 kB
-Slab:            8982472 kB	->	Slab:            8982472 kB	=	0 kB
-SReclaimable:    8190960 kB	->	SReclaimable:    8190960 kB	=	0 kB
-SUnreclaim:       791512 kB	->	SUnreclaim:       791512 kB	=	0 kB
-KernelStack:       80296 kB	->	KernelStack:       80584 kB	=	288 kB
-PageTables:       218908 kB	->	PageTables:       219716 kB	=	808 kB
+AnonPages:      37669012 kB	->	AnonPages:      37813916 kB	=	144904 kB
+Mapped:          3103040 kB	->	Mapped:          3727596 kB	=	624556 kB
+Shmem:           4141248 kB	->	Shmem:           4139524 kB	=	-1724 kB
+KReclaimable:    6701448 kB	->	KReclaimable:    6701448 kB	=	0 kB
+Slab:            7498816 kB	->	Slab:            7498824 kB	=	8 kB
+SReclaimable:    6701448 kB	->	SReclaimable:    6701448 kB	=	0 kB
+SUnreclaim:       797368 kB	->	SUnreclaim:       797376 kB	=	8 kB
+KernelStack:       90560 kB	->	KernelStack:       90896 kB	=	336 kB
+PageTables:       285832 kB	->	PageTables:       288368 kB	=	2536 kB
 SecPageTables:         0 kB	->	SecPageTables:         0 kB	=	0 kB
 NFS_Unstable:          0 kB	->	NFS_Unstable:          0 kB	=	0 kB
 Bounce:                0 kB	->	Bounce:                0 kB	=	0 kB
 WritebackTmp:          0 kB	->	WritebackTmp:          0 kB	=	0 kB
 CommitLimit:    32748156 kB	->	CommitLimit:    32748156 kB	=	0 kB
-Committed_AS:   55951708 kB	->	Committed_AS:   56037652 kB	=	85944 kB
+Committed_AS:   70931708 kB	->	Committed_AS:   71173028 kB	=	241320 kB
 VmallocTotal:   34359738367 kB	->	VmallocTotal:   34359738367 kB	=	0 kB
-VmallocUsed:      226608 kB	->	VmallocUsed:      226736 kB	=	128 kB
+VmallocUsed:      237692 kB	->	VmallocUsed:      238028 kB	=	336 kB
 VmallocChunk:          0 kB	->	VmallocChunk:          0 kB	=	0 kB
-Percpu:            29888 kB	->	Percpu:            29888 kB	=	0 kB
+Percpu:            32960 kB	->	Percpu:            32960 kB	=	0 kB
 HardwareCorrupted:     0 kB	->	HardwareCorrupted:     0 kB	=	0 kB
-AnonHugePages:    200704 kB	->	AnonHugePages:    200704 kB	=	0 kB
-ShmemHugePages:  2324480 kB	->	ShmemHugePages:  2324480 kB	=	0 kB
+AnonHugePages:     79872 kB	->	AnonHugePages:     79872 kB	=	0 kB
+ShmemHugePages:  1314816 kB	->	ShmemHugePages:  1312768 kB	=	-2048 kB
 ShmemPmdMapped:        0 kB	->	ShmemPmdMapped:        0 kB	=	0 kB
 FileHugePages:         0 kB	->	FileHugePages:         0 kB	=	0 kB
 FilePmdMapped:         0 kB	->	FilePmdMapped:         0 kB	=	0 kB
@@ -106,60 +241,60 @@ Hugetlb:               0 kB	->	Hugetlb:               0 kB	=	0 kB
 DirectMap4k:      684064 kB	->	DirectMap4k:      684064 kB	=	0 kB
 DirectMap2M:    30429184 kB	->	DirectMap2M:    30429184 kB	=	0 kB
 DirectMap1G:    35651584 kB	->	DirectMap1G:    35651584 kB	=	0 kB
-0.10user 0.04system 0:00.22elapsed 66%CPU (0avgtext+0avgdata 61568maxresident)k
-71472inputs+16outputs (1218major+6732minor)pagefaults 0swaps
-259:0 rbytes=36605952 wbytes=0 rios=311 wios=0 dbytes=0 dios=0
-252:0 rbytes=36605952 wbytes=4096 rios=311 wios=1 dbytes=0 dios=0
-252:1 rbytes=36605952 wbytes=0 rios=311 wios=0 dbytes=0 dios=0
+0.41user 0.56system 0:02.31elapsed 42%CPU (0avgtext+0avgdata 765440maxresident)k
+1927704inputs+0outputs (4751major+41186minor)pagefaults 0swaps
+259:0 rbytes=986996736 wbytes=0 rios=4873 wios=0 dbytes=0 dios=0
+252:0 rbytes=986996736 wbytes=0 rios=4873 wios=0 dbytes=0 dios=0
+252:1 rbytes=986996736 wbytes=0 rios=4873 wios=0 dbytes=0 dios=0
 ===
-=== ./prefetch run -dir foo -prefetch=true -hit=false
-Running scope as unit: run-r395ba7464fc9452c86ac176a17032b67.scope
-badger 2024/06/20 22:47:30 INFO: All 2 tables opened in 23ms
-badger 2024/06/20 22:47:30 INFO: Replaying file id: 26 at offset: 60607284
-badger 2024/06/20 22:47:30 INFO: Replay took: 8.476µs
-2024/06/20 22:47:36 0 values read
+=== ./prefetch run -dir baz -prefetch=false -hit=true
+Running scope as unit: run-r98785ecb1e054be3992a2a0433ef83e8.scope
+badger 2024/06/25 15:18:55 INFO: All 33 tables opened in 17ms
+badger 2024/06/25 15:18:55 INFO: Discard stats nextEmptySlot: 0
+badger 2024/06/25 15:18:55 INFO: Set nextTxnTs to 9900
+2024/06/25 15:18:58 891000 values read
 MemTotal:       65496312 kB	->	MemTotal:       65496312 kB	=	0 kB
-MemFree:        20014716 kB	->	MemFree:        17615672 kB	=	-2399044 kB
-MemAvailable:   31145040 kB	->	MemAvailable:   31112992 kB	=	-32048 kB
-Buffers:          236648 kB	->	Buffers:          873460 kB	=	636812 kB
-Cached:          6787992 kB	->	Cached:          8516692 kB	=	1728700 kB
+MemFree:        12723040 kB	->	MemFree:        11088784 kB	=	-1634256 kB
+MemAvailable:   21450260 kB	->	MemAvailable:   20863008 kB	=	-587252 kB
+Buffers:            2800 kB	->	Buffers:           14944 kB	=	12144 kB
+Cached:          6748140 kB	->	Cached:          7772104 kB	=	1023964 kB
 SwapCached:            0 kB	->	SwapCached:            0 kB	=	0 kB
-Active:         20126752 kB	->	Active:         20211172 kB	=	84420 kB
-Inactive:       13071456 kB	->	Inactive:       15379480 kB	=	2308024 kB
-Active(anon):   17922960 kB	->	Active(anon):   17948392 kB	=	25432 kB
-Inactive(anon): 11604516 kB	->	Inactive(anon): 11604516 kB	=	0 kB
-Active(file):    2203792 kB	->	Active(file):    2262780 kB	=	58988 kB
-Inactive(file):  1466940 kB	->	Inactive(file):  3774964 kB	=	2308024 kB
-Unevictable:     2575536 kB	->	Unevictable:     2574896 kB	=	-640 kB
+Active:         24311492 kB	->	Active:         25903904 kB	=	1592412 kB
+Inactive:       17329968 kB	->	Inactive:       17378976 kB	=	49008 kB
+Active(anon):   22871300 kB	->	Active(anon):   23465700 kB	=	594400 kB
+Inactive(anon): 16013016 kB	->	Inactive(anon): 16013016 kB	=	0 kB
+Active(file):    1440192 kB	->	Active(file):    2438204 kB	=	998012 kB
+Inactive(file):  1316952 kB	->	Inactive(file):  1365960 kB	=	49008 kB
+Unevictable:     2804568 kB	->	Unevictable:     2793624 kB	=	-10944 kB
 Mlocked:             376 kB	->	Mlocked:             376 kB	=	0 kB
 SwapTotal:             0 kB	->	SwapTotal:             0 kB	=	0 kB
 SwapFree:              0 kB	->	SwapFree:              0 kB	=	0 kB
 Zswap:                 0 kB	->	Zswap:                 0 kB	=	0 kB
 Zswapped:              0 kB	->	Zswapped:              0 kB	=	0 kB
-Dirty:             36096 kB	->	Dirty:             36472 kB	=	376 kB
+Dirty:              5780 kB	->	Dirty:              2872 kB	=	-2908 kB
 Writeback:             0 kB	->	Writeback:             0 kB	=	0 kB
-AnonPages:      28748512 kB	->	AnonPages:      28773932 kB	=	25420 kB
-Mapped:          3694248 kB	->	Mapped:          5381384 kB	=	1687136 kB
-Shmem:           3499740 kB	->	Shmem:           3499112 kB	=	-628 kB
-KReclaimable:    8190932 kB	->	KReclaimable:    8190916 kB	=	-16 kB
-Slab:            8982348 kB	->	Slab:            8982292 kB	=	-56 kB
-SReclaimable:    8190932 kB	->	SReclaimable:    8190916 kB	=	-16 kB
-SUnreclaim:       791416 kB	->	SUnreclaim:       791376 kB	=	-40 kB
-KernelStack:       80080 kB	->	KernelStack:       80384 kB	=	304 kB
-PageTables:       218700 kB	->	PageTables:       223008 kB	=	4308 kB
+AnonPages:      37685476 kB	->	AnonPages:      38279960 kB	=	594484 kB
+Mapped:          3102548 kB	->	Mapped:          4081220 kB	=	978672 kB
+Shmem:           4136960 kB	->	Shmem:           4126020 kB	=	-10940 kB
+KReclaimable:    6701416 kB	->	KReclaimable:    6701400 kB	=	-16 kB
+Slab:            7498800 kB	->	Slab:            7498760 kB	=	-40 kB
+SReclaimable:    6701416 kB	->	SReclaimable:    6701400 kB	=	-16 kB
+SUnreclaim:       797384 kB	->	SUnreclaim:       797360 kB	=	-24 kB
+KernelStack:       90656 kB	->	KernelStack:       90880 kB	=	224 kB
+PageTables:       285800 kB	->	PageTables:       289224 kB	=	3424 kB
 SecPageTables:         0 kB	->	SecPageTables:         0 kB	=	0 kB
 NFS_Unstable:          0 kB	->	NFS_Unstable:          0 kB	=	0 kB
 Bounce:                0 kB	->	Bounce:                0 kB	=	0 kB
 WritebackTmp:          0 kB	->	WritebackTmp:          0 kB	=	0 kB
 CommitLimit:    32748156 kB	->	CommitLimit:    32748156 kB	=	0 kB
-Committed_AS:   55946248 kB	->	Committed_AS:   56121624 kB	=	175376 kB
+Committed_AS:   70922512 kB	->	Committed_AS:   71618216 kB	=	695704 kB
 VmallocTotal:   34359738367 kB	->	VmallocTotal:   34359738367 kB	=	0 kB
-VmallocUsed:      226496 kB	->	VmallocUsed:      226608 kB	=	112 kB
+VmallocUsed:      237708 kB	->	VmallocUsed:      237932 kB	=	224 kB
 VmallocChunk:          0 kB	->	VmallocChunk:          0 kB	=	0 kB
-Percpu:            29888 kB	->	Percpu:            29888 kB	=	0 kB
+Percpu:            32960 kB	->	Percpu:            32960 kB	=	0 kB
 HardwareCorrupted:     0 kB	->	HardwareCorrupted:     0 kB	=	0 kB
-AnonHugePages:    200704 kB	->	AnonHugePages:    200704 kB	=	0 kB
-ShmemHugePages:  2324480 kB	->	ShmemHugePages:  2324480 kB	=	0 kB
+AnonHugePages:     79872 kB	->	AnonHugePages:     79872 kB	=	0 kB
+ShmemHugePages:  1312768 kB	->	ShmemHugePages:  1304576 kB	=	-8192 kB
 ShmemPmdMapped:        0 kB	->	ShmemPmdMapped:        0 kB	=	0 kB
 FileHugePages:         0 kB	->	FileHugePages:         0 kB	=	0 kB
 FilePmdMapped:         0 kB	->	FilePmdMapped:         0 kB	=	0 kB
@@ -173,60 +308,60 @@ Hugetlb:               0 kB	->	Hugetlb:               0 kB	=	0 kB
 DirectMap4k:      684064 kB	->	DirectMap4k:      684064 kB	=	0 kB
 DirectMap2M:    30429184 kB	->	DirectMap2M:    30429184 kB	=	0 kB
 DirectMap1G:    35651584 kB	->	DirectMap1G:    35651584 kB	=	0 kB
-6.65user 9.85system 0:06.63elapsed 248%CPU (0avgtext+0avgdata 1730688maxresident)k
-3374232inputs+16outputs (606659major+35655minor)pagefaults 0swaps
-259:0 rbytes=1727619072 wbytes=0 rios=413154 wios=0 dbytes=0 dios=0
-252:0 rbytes=1727619072 wbytes=4096 rios=413154 wios=1 dbytes=0 dios=0
-252:1 rbytes=1727619072 wbytes=0 rios=413154 wios=0 dbytes=0 dios=0
+3.70user 0.98system 0:03.05elapsed 153%CPU (0avgtext+0avgdata 1582008maxresident)k
+1974568inputs+0outputs (5446major+170436minor)pagefaults 0swaps
+259:0 rbytes=1010991104 wbytes=0 rios=4813 wios=0 dbytes=0 dios=0
+252:0 rbytes=1010991104 wbytes=0 rios=4813 wios=0 dbytes=0 dios=0
+252:1 rbytes=1010991104 wbytes=0 rios=4813 wios=0 dbytes=0 dios=0
 ===
-=== ./prefetch run -dir foo -prefetch=hybrid -hit=false
-Running scope as unit: run-r86327bfe25bb40719ab303384a3ab8bf.scope
-badger 2024/06/20 22:47:40 INFO: All 2 tables opened in 24ms
-badger 2024/06/20 22:47:40 INFO: Replaying file id: 26 at offset: 60607284
-badger 2024/06/20 22:47:40 INFO: Replay took: 10.921µs
-2024/06/20 22:47:40 0 values read
+=== ./prefetch run -dir baz -prefetch=true -hit=true
+Running scope as unit: run-r67d00d8689154e9fbf4dd55f04ffe089.scope
+badger 2024/06/25 15:19:01 INFO: All 33 tables opened in 19ms
+badger 2024/06/25 15:19:01 INFO: Discard stats nextEmptySlot: 0
+badger 2024/06/25 15:19:01 INFO: Set nextTxnTs to 9900
+2024/06/25 15:19:08 891000 values read
 MemTotal:       65496312 kB	->	MemTotal:       65496312 kB	=	0 kB
-MemFree:        19991188 kB	->	MemFree:        19919144 kB	=	-72044 kB
-MemAvailable:   31137768 kB	->	MemAvailable:   31125188 kB	=	-12580 kB
-Buffers:          266732 kB	->	Buffers:          285256 kB	=	18524 kB
-Cached:          6774040 kB	->	Cached:          6814552 kB	=	40512 kB
+MemFree:        12711888 kB	->	MemFree:        11028792 kB	=	-1683096 kB
+MemAvailable:   21451104 kB	->	MemAvailable:   20794808 kB	=	-656296 kB
+Buffers:            5920 kB	->	Buffers:            8488 kB	=	2568 kB
+Cached:          6746440 kB	->	Cached:          7828068 kB	=	1081628 kB
 SwapCached:            0 kB	->	SwapCached:            0 kB	=	0 kB
-Active:         20110156 kB	->	Active:         20168752 kB	=	58596 kB
-Inactive:       13093564 kB	->	Inactive:       13115964 kB	=	22400 kB
-Active(anon):   17912292 kB	->	Active(anon):   17933824 kB	=	21532 kB
-Inactive(anon): 11604380 kB	->	Inactive(anon): 11604380 kB	=	0 kB
-Active(file):    2197864 kB	->	Active(file):    2234928 kB	=	37064 kB
-Inactive(file):  1489184 kB	->	Inactive(file):  1511584 kB	=	22400 kB
-Unevictable:     2575004 kB	->	Unevictable:     2575004 kB	=	0 kB
-Mlocked:             384 kB	->	Mlocked:             384 kB	=	0 kB
+Active:         24324088 kB	->	Active:         25926888 kB	=	1602800 kB
+Inactive:       17337452 kB	->	Inactive:       17362848 kB	=	25396 kB
+Active(anon):   22879244 kB	->	Active(anon):   23480644 kB	=	601400 kB
+Inactive(anon): 16013016 kB	->	Inactive(anon): 16013016 kB	=	0 kB
+Active(file):    1444844 kB	->	Active(file):    2446244 kB	=	1001400 kB
+Inactive(file):  1324436 kB	->	Inactive(file):  1349832 kB	=	25396 kB
+Unevictable:     2793496 kB	->	Unevictable:     2851032 kB	=	57536 kB
+Mlocked:             376 kB	->	Mlocked:             376 kB	=	0 kB
 SwapTotal:             0 kB	->	SwapTotal:             0 kB	=	0 kB
 SwapFree:              0 kB	->	SwapFree:              0 kB	=	0 kB
 Zswap:                 0 kB	->	Zswap:                 0 kB	=	0 kB
 Zswapped:              0 kB	->	Zswapped:              0 kB	=	0 kB
-Dirty:             37132 kB	->	Dirty:             37144 kB	=	12 kB
+Dirty:              2900 kB	->	Dirty:               692 kB	=	-2208 kB
 Writeback:             0 kB	->	Writeback:             0 kB	=	0 kB
-AnonPages:      28738108 kB	->	AnonPages:      28759224 kB	=	21116 kB
-Mapped:          3696208 kB	->	Mapped:          3729496 kB	=	33288 kB
-Shmem:           3499208 kB	->	Shmem:           3499208 kB	=	0 kB
-KReclaimable:    8190872 kB	->	KReclaimable:    8190872 kB	=	0 kB
-Slab:            8982136 kB	->	Slab:            8982136 kB	=	0 kB
-SReclaimable:    8190872 kB	->	SReclaimable:    8190872 kB	=	0 kB
-SUnreclaim:       791264 kB	->	SUnreclaim:       791264 kB	=	0 kB
-KernelStack:       79960 kB	->	KernelStack:       79960 kB	=	0 kB
-PageTables:       218704 kB	->	PageTables:       218676 kB	=	-28 kB
+AnonPages:      37693148 kB	->	AnonPages:      38294520 kB	=	601372 kB
+Mapped:          3111168 kB	->	Mapped:          4079248 kB	=	968080 kB
+Shmem:           4125888 kB	->	Shmem:           4183428 kB	=	57540 kB
+KReclaimable:    6701276 kB	->	KReclaimable:    6701280 kB	=	4 kB
+Slab:            7498700 kB	->	Slab:            7498712 kB	=	12 kB
+SReclaimable:    6701276 kB	->	SReclaimable:    6701280 kB	=	4 kB
+SUnreclaim:       797424 kB	->	SUnreclaim:       797432 kB	=	8 kB
+KernelStack:       90904 kB	->	KernelStack:       91120 kB	=	216 kB
+PageTables:       286272 kB	->	PageTables:       289420 kB	=	3148 kB
 SecPageTables:         0 kB	->	SecPageTables:         0 kB	=	0 kB
 NFS_Unstable:          0 kB	->	NFS_Unstable:          0 kB	=	0 kB
 Bounce:                0 kB	->	Bounce:                0 kB	=	0 kB
 WritebackTmp:          0 kB	->	WritebackTmp:          0 kB	=	0 kB
 CommitLimit:    32748156 kB	->	CommitLimit:    32748156 kB	=	0 kB
-Committed_AS:   55948184 kB	->	Committed_AS:   56037588 kB	=	89404 kB
+Committed_AS:   71000660 kB	->	Committed_AS:   71680236 kB	=	679576 kB
 VmallocTotal:   34359738367 kB	->	VmallocTotal:   34359738367 kB	=	0 kB
-VmallocUsed:      226512 kB	->	VmallocUsed:      226368 kB	=	-144 kB
+VmallocUsed:      237964 kB	->	VmallocUsed:      238012 kB	=	48 kB
 VmallocChunk:          0 kB	->	VmallocChunk:          0 kB	=	0 kB
-Percpu:            29888 kB	->	Percpu:            29888 kB	=	0 kB
+Percpu:            32960 kB	->	Percpu:            32960 kB	=	0 kB
 HardwareCorrupted:     0 kB	->	HardwareCorrupted:     0 kB	=	0 kB
-AnonHugePages:    200704 kB	->	AnonHugePages:    200704 kB	=	0 kB
-ShmemHugePages:  2324480 kB	->	ShmemHugePages:  2324480 kB	=	0 kB
+AnonHugePages:     79872 kB	->	AnonHugePages:     79872 kB	=	0 kB
+ShmemHugePages:  1304576 kB	->	ShmemHugePages:  1355776 kB	=	51200 kB
 ShmemPmdMapped:        0 kB	->	ShmemPmdMapped:        0 kB	=	0 kB
 FileHugePages:         0 kB	->	FileHugePages:         0 kB	=	0 kB
 FilePmdMapped:         0 kB	->	FilePmdMapped:         0 kB	=	0 kB
@@ -240,60 +375,60 @@ Hugetlb:               0 kB	->	Hugetlb:               0 kB	=	0 kB
 DirectMap4k:      684064 kB	->	DirectMap4k:      684064 kB	=	0 kB
 DirectMap2M:    30429184 kB	->	DirectMap2M:    30429184 kB	=	0 kB
 DirectMap1G:    35651584 kB	->	DirectMap1G:    35651584 kB	=	0 kB
-0.08user 0.04system 0:00.19elapsed 68%CPU (0avgtext+0avgdata 61952maxresident)k
-71456inputs+16outputs (1213major+6752minor)pagefaults 0swaps
-259:0 rbytes=36597760 wbytes=0 rios=309 wios=0 dbytes=0 dios=0
-252:0 rbytes=36597760 wbytes=4096 rios=309 wios=1 dbytes=0 dios=0
-252:1 rbytes=36597760 wbytes=0 rios=309 wios=0 dbytes=0 dios=0
+14.68user 2.02system 0:06.88elapsed 242%CPU (0avgtext+0avgdata 1589024maxresident)k
+1974728inputs+0outputs (5517major+170283minor)pagefaults 0swaps
+259:0 rbytes=1011073024 wbytes=0 rios=4647 wios=0 dbytes=0 dios=0
+252:0 rbytes=1011073024 wbytes=0 rios=4647 wios=0 dbytes=0 dios=0
+252:1 rbytes=1011073024 wbytes=0 rios=4647 wios=0 dbytes=0 dios=0
 ===
-=== ./prefetch run -dir foo -prefetch=false -hit=true
-Running scope as unit: run-rdab3b246b5224fa89461f3e3f0cd0cb3.scope
-badger 2024/06/20 22:47:43 INFO: All 2 tables opened in 27ms
-badger 2024/06/20 22:47:43 INFO: Replaying file id: 26 at offset: 60607284
-badger 2024/06/20 22:47:43 INFO: Replay took: 12.4µs
-2024/06/20 22:48:17 891000 values read
+=== ./prefetch run -dir baz -prefetch=hybrid -hit=true
+Running scope as unit: run-rcdbb71219c1f4a58b15658305535402c.scope
+badger 2024/06/25 15:19:11 INFO: All 33 tables opened in 18ms
+badger 2024/06/25 15:19:11 INFO: Discard stats nextEmptySlot: 0
+badger 2024/06/25 15:19:11 INFO: Set nextTxnTs to 9900
+2024/06/25 15:19:18 891000 values read
 MemTotal:       65496312 kB	->	MemTotal:       65496312 kB	=	0 kB
-MemFree:        19987668 kB	->	MemFree:        17370256 kB	=	-2617412 kB
-MemAvailable:   31128264 kB	->	MemAvailable:   31118324 kB	=	-9940 kB
-Buffers:          242404 kB	->	Buffers:          961708 kB	=	719304 kB
-Cached:          6793016 kB	->	Cached:          8678380 kB	=	1885364 kB
+MemFree:        12689464 kB	->	MemFree:        11067792 kB	=	-1621672 kB
+MemAvailable:   21409484 kB	->	MemAvailable:   20820708 kB	=	-588776 kB
+Buffers:            5540 kB	->	Buffers:            7808 kB	=	2268 kB
+Cached:          6765780 kB	->	Cached:          7796352 kB	=	1030572 kB
 SwapCached:            0 kB	->	SwapCached:            0 kB	=	0 kB
-Active:         20146664 kB	->	Active:         20176340 kB	=	29676 kB
-Inactive:       13073120 kB	->	Inactive:       15644016 kB	=	2570896 kB
-Active(anon):   17934340 kB	->	Active(anon):   17927428 kB	=	-6912 kB
-Inactive(anon): 11604380 kB	->	Inactive(anon): 11604380 kB	=	0 kB
-Active(file):    2212324 kB	->	Active(file):    2248912 kB	=	36588 kB
-Inactive(file):  1468740 kB	->	Inactive(file):  4039636 kB	=	2570896 kB
-Unevictable:     2574876 kB	->	Unevictable:     2574512 kB	=	-364 kB
+Active:         24335460 kB	->	Active:         25933580 kB	=	1598120 kB
+Inactive:       17322828 kB	->	Inactive:       17349108 kB	=	26280 kB
+Active(anon):   22895060 kB	->	Active(anon):   23486568 kB	=	591508 kB
+Inactive(anon): 16013016 kB	->	Inactive(anon): 16013016 kB	=	0 kB
+Active(file):    1440400 kB	->	Active(file):    2447012 kB	=	1006612 kB
+Inactive(file):  1309812 kB	->	Inactive(file):  1336092 kB	=	26280 kB
+Unevictable:     2831832 kB	->	Unevictable:     2831832 kB	=	0 kB
 Mlocked:             376 kB	->	Mlocked:             376 kB	=	0 kB
 SwapTotal:             0 kB	->	SwapTotal:             0 kB	=	0 kB
 SwapFree:              0 kB	->	SwapFree:              0 kB	=	0 kB
 Zswap:                 0 kB	->	Zswap:                 0 kB	=	0 kB
 Zswapped:              0 kB	->	Zswapped:              0 kB	=	0 kB
-Dirty:             36988 kB	->	Dirty:               352 kB	=	-36636 kB
-Writeback:           276 kB	->	Writeback:             0 kB	=	-276 kB
-AnonPages:      28759412 kB	->	AnonPages:      28752232 kB	=	-7180 kB
-Mapped:          3702624 kB	->	Mapped:          5496552 kB	=	1793928 kB
-Shmem:           3499080 kB	->	Shmem:           3498720 kB	=	-360 kB
-KReclaimable:    8190872 kB	->	KReclaimable:    8190860 kB	=	-12 kB
-Slab:            8982096 kB	->	Slab:            8982180 kB	=	84 kB
-SReclaimable:    8190872 kB	->	SReclaimable:    8190860 kB	=	-12 kB
-SUnreclaim:       791224 kB	->	SUnreclaim:       791320 kB	=	96 kB
-KernelStack:       80328 kB	->	KernelStack:       80168 kB	=	-160 kB
-PageTables:       218648 kB	->	PageTables:       222628 kB	=	3980 kB
+Dirty:              1776 kB	->	Dirty:              1172 kB	=	-604 kB
+Writeback:             0 kB	->	Writeback:             0 kB	=	0 kB
+AnonPages:      37708976 kB	->	AnonPages:      38301328 kB	=	592352 kB
+Mapped:          3105632 kB	->	Mapped:          4092964 kB	=	987332 kB
+Shmem:           4164252 kB	->	Shmem:           4164228 kB	=	-24 kB
+KReclaimable:    6701148 kB	->	KReclaimable:    6701152 kB	=	4 kB
+Slab:            7498556 kB	->	Slab:            7498504 kB	=	-52 kB
+SReclaimable:    6701148 kB	->	SReclaimable:    6701152 kB	=	4 kB
+SUnreclaim:       797408 kB	->	SUnreclaim:       797352 kB	=	-56 kB
+KernelStack:       90672 kB	->	KernelStack:       91008 kB	=	336 kB
+PageTables:       285972 kB	->	PageTables:       289376 kB	=	3404 kB
 SecPageTables:         0 kB	->	SecPageTables:         0 kB	=	0 kB
 NFS_Unstable:          0 kB	->	NFS_Unstable:          0 kB	=	0 kB
 Bounce:                0 kB	->	Bounce:                0 kB	=	0 kB
 WritebackTmp:          0 kB	->	WritebackTmp:          0 kB	=	0 kB
 CommitLimit:    32748156 kB	->	CommitLimit:    32748156 kB	=	0 kB
-Committed_AS:   56314512 kB	->	Committed_AS:   56032008 kB	=	-282504 kB
+Committed_AS:   71023780 kB	->	Committed_AS:   71676244 kB	=	652464 kB
 VmallocTotal:   34359738367 kB	->	VmallocTotal:   34359738367 kB	=	0 kB
-VmallocUsed:      226848 kB	->	VmallocUsed:      226528 kB	=	-320 kB
+VmallocUsed:      237788 kB	->	VmallocUsed:      238236 kB	=	448 kB
 VmallocChunk:          0 kB	->	VmallocChunk:          0 kB	=	0 kB
-Percpu:            29888 kB	->	Percpu:            29888 kB	=	0 kB
+Percpu:            32960 kB	->	Percpu:            32960 kB	=	0 kB
 HardwareCorrupted:     0 kB	->	HardwareCorrupted:     0 kB	=	0 kB
-AnonHugePages:    206848 kB	->	AnonHugePages:    186368 kB	=	-20480 kB
-ShmemHugePages:  2324480 kB	->	ShmemHugePages:  2324480 kB	=	0 kB
+AnonHugePages:     79872 kB	->	AnonHugePages:     79872 kB	=	0 kB
+ShmemHugePages:  1341440 kB	->	ShmemHugePages:  1341440 kB	=	0 kB
 ShmemPmdMapped:        0 kB	->	ShmemPmdMapped:        0 kB	=	0 kB
 FileHugePages:         0 kB	->	FileHugePages:         0 kB	=	0 kB
 FilePmdMapped:         0 kB	->	FilePmdMapped:         0 kB	=	0 kB
@@ -307,144 +442,10 @@ Hugetlb:               0 kB	->	Hugetlb:               0 kB	=	0 kB
 DirectMap4k:      684064 kB	->	DirectMap4k:      684064 kB	=	0 kB
 DirectMap2M:    30429184 kB	->	DirectMap2M:    30429184 kB	=	0 kB
 DirectMap1G:    35651584 kB	->	DirectMap1G:    35651584 kB	=	0 kB
-1.24user 4.15system 0:34.10elapsed 15%CPU (0avgtext+0avgdata 1829632maxresident)k
-3600160inputs+16outputs (440841major+8513minor)pagefaults 0swaps
-259:0 rbytes=1843294208 wbytes=0 rios=441398 wios=0 dbytes=0 dios=0
-252:0 rbytes=1843294208 wbytes=4096 rios=441398 wios=1 dbytes=0 dios=0
-252:1 rbytes=1843294208 wbytes=0 rios=441398 wios=0 dbytes=0 dios=0
-===
-=== ./prefetch run -dir foo -prefetch=true -hit=true
-Running scope as unit: run-rd382748b9cc74c1bb51c4152796ae674.scope
-badger 2024/06/20 22:48:21 INFO: All 2 tables opened in 19ms
-badger 2024/06/20 22:48:21 INFO: Replaying file id: 26 at offset: 60607284
-badger 2024/06/20 22:48:21 INFO: Replay took: 1.959µs
-2024/06/20 22:48:27 891000 values read
-MemTotal:       65496312 kB	->	MemTotal:       65496312 kB	=	0 kB
-MemFree:        20256400 kB	->	MemFree:        18399288 kB	=	-1857112 kB
-MemAvailable:   31156844 kB	->	MemAvailable:   31130932 kB	=	-25912 kB
-Buffers:           13000 kB	->	Buffers:           19540 kB	=	6540 kB
-Cached:          6779876 kB	->	Cached:          8604440 kB	=	1824564 kB
-SwapCached:            0 kB	->	SwapCached:            0 kB	=	0 kB
-Active:         20099640 kB	->	Active:         20183704 kB	=	84064 kB
-Inactive:       12846996 kB	->	Inactive:       14629212 kB	=	1782216 kB
-Active(anon):   17901332 kB	->	Active(anon):   17936412 kB	=	35080 kB
-Inactive(anon): 11604380 kB	->	Inactive(anon): 11604380 kB	=	0 kB
-Active(file):    2198308 kB	->	Active(file):    2247292 kB	=	48984 kB
-Inactive(file):  1242616 kB	->	Inactive(file):  3024832 kB	=	1782216 kB
-Unevictable:     2574044 kB	->	Unevictable:     2574556 kB	=	512 kB
-Mlocked:             376 kB	->	Mlocked:             376 kB	=	0 kB
-SwapTotal:             0 kB	->	SwapTotal:             0 kB	=	0 kB
-SwapFree:              0 kB	->	SwapFree:              0 kB	=	0 kB
-Zswap:                 0 kB	->	Zswap:                 0 kB	=	0 kB
-Zswapped:              0 kB	->	Zswapped:              0 kB	=	0 kB
-Dirty:              1196 kB	->	Dirty:              2356 kB	=	1160 kB
-Writeback:             0 kB	->	Writeback:             4 kB	=	4 kB
-AnonPages:      28726076 kB	->	AnonPages:      28761048 kB	=	34972 kB
-Mapped:          3698344 kB	->	Mapped:          5496756 kB	=	1798412 kB
-Shmem:           3498244 kB	->	Shmem:           3498764 kB	=	520 kB
-KReclaimable:    8190860 kB	->	KReclaimable:    8190860 kB	=	0 kB
-Slab:            8982244 kB	->	Slab:            8982164 kB	=	-80 kB
-SReclaimable:    8190860 kB	->	SReclaimable:    8190860 kB	=	0 kB
-SUnreclaim:       791384 kB	->	SUnreclaim:       791304 kB	=	-80 kB
-KernelStack:       80008 kB	->	KernelStack:       80144 kB	=	136 kB
-PageTables:       219220 kB	->	PageTables:       222992 kB	=	3772 kB
-SecPageTables:         0 kB	->	SecPageTables:         0 kB	=	0 kB
-NFS_Unstable:          0 kB	->	NFS_Unstable:          0 kB	=	0 kB
-Bounce:                0 kB	->	Bounce:                0 kB	=	0 kB
-WritebackTmp:          0 kB	->	WritebackTmp:          0 kB	=	0 kB
-CommitLimit:    32748156 kB	->	CommitLimit:    32748156 kB	=	0 kB
-Committed_AS:   55964092 kB	->	Committed_AS:   56121876 kB	=	157784 kB
-VmallocTotal:   34359738367 kB	->	VmallocTotal:   34359738367 kB	=	0 kB
-VmallocUsed:      226288 kB	->	VmallocUsed:      226368 kB	=	80 kB
-VmallocChunk:          0 kB	->	VmallocChunk:          0 kB	=	0 kB
-Percpu:            29888 kB	->	Percpu:            29888 kB	=	0 kB
-HardwareCorrupted:     0 kB	->	HardwareCorrupted:     0 kB	=	0 kB
-AnonHugePages:    186368 kB	->	AnonHugePages:    186368 kB	=	0 kB
-ShmemHugePages:  2324480 kB	->	ShmemHugePages:  2324480 kB	=	0 kB
-ShmemPmdMapped:        0 kB	->	ShmemPmdMapped:        0 kB	=	0 kB
-FileHugePages:         0 kB	->	FileHugePages:         0 kB	=	0 kB
-FilePmdMapped:         0 kB	->	FilePmdMapped:         0 kB	=	0 kB
-Unaccepted:            0 kB	->	Unaccepted:            0 kB	=	0 kB
-HugePages_Total:       0	->	HugePages_Total:       0	=	0 
-HugePages_Free:        0	->	HugePages_Free:        0	=	0 
-HugePages_Rsvd:        0	->	HugePages_Rsvd:        0	=	0 
-HugePages_Surp:        0	->	HugePages_Surp:        0	=	0 
-Hugepagesize:       2048 kB	->	Hugepagesize:       2048 kB	=	0 kB
-Hugetlb:               0 kB	->	Hugetlb:               0 kB	=	0 kB
-DirectMap4k:      684064 kB	->	DirectMap4k:      684064 kB	=	0 kB
-DirectMap2M:    30429184 kB	->	DirectMap2M:    30429184 kB	=	0 kB
-DirectMap1G:    35651584 kB	->	DirectMap1G:    35651584 kB	=	0 kB
-8.24user 10.55system 0:06.60elapsed 284%CPU (0avgtext+0avgdata 1844992maxresident)k
-3615608inputs+16outputs (659248major+38629minor)pagefaults 0swaps
-259:0 rbytes=1851203584 wbytes=0 rios=441473 wios=0 dbytes=0 dios=0
-252:0 rbytes=1851203584 wbytes=4096 rios=441473 wios=1 dbytes=0 dios=0
-252:1 rbytes=1851203584 wbytes=0 rios=441473 wios=0 dbytes=0 dios=0
-===
-=== ./prefetch run -dir foo -prefetch=hybrid -hit=true
-Running scope as unit: run-rfbd15cc32b034d8e8d7a2f4f1ace0a01.scope
-badger 2024/06/20 22:48:31 INFO: All 2 tables opened in 19ms
-badger 2024/06/20 22:48:31 INFO: Replaying file id: 26 at offset: 60607284
-badger 2024/06/20 22:48:31 INFO: Replay took: 2.377µs
-2024/06/20 22:48:37 891000 values read
-MemTotal:       65496312 kB	->	MemTotal:       65496312 kB	=	0 kB
-MemFree:        20301492 kB	->	MemFree:        18364940 kB	=	-1936552 kB
-MemAvailable:   31176420 kB	->	MemAvailable:   31104996 kB	=	-71424 kB
-Buffers:            1868 kB	->	Buffers:            7836 kB	=	5968 kB
-Cached:          6764884 kB	->	Cached:          8624576 kB	=	1859692 kB
-SwapCached:            0 kB	->	SwapCached:            0 kB	=	0 kB
-Active:         20081488 kB	->	Active:         20209868 kB	=	128380 kB
-Inactive:       12831428 kB	->	Inactive:       14636768 kB	=	1805340 kB
-Active(anon):   17893096 kB	->	Active(anon):   17961692 kB	=	68596 kB
-Inactive(anon): 11604380 kB	->	Inactive(anon): 11604380 kB	=	0 kB
-Active(file):    2188392 kB	->	Active(file):    2248176 kB	=	59784 kB
-Inactive(file):  1227048 kB	->	Inactive(file):  3032388 kB	=	1805340 kB
-Unevictable:     2574492 kB	->	Unevictable:     2574556 kB	=	64 kB
-Mlocked:             376 kB	->	Mlocked:             376 kB	=	0 kB
-SwapTotal:             0 kB	->	SwapTotal:             0 kB	=	0 kB
-SwapFree:              0 kB	->	SwapFree:              0 kB	=	0 kB
-Zswap:                 0 kB	->	Zswap:                 0 kB	=	0 kB
-Zswapped:              0 kB	->	Zswapped:              0 kB	=	0 kB
-Dirty:              2688 kB	->	Dirty:              1104 kB	=	-1584 kB
-Writeback:             0 kB	->	Writeback:            24 kB	=	24 kB
-AnonPages:      28717848 kB	->	AnonPages:      28786812 kB	=	68964 kB
-Mapped:          3697436 kB	->	Mapped:          5496888 kB	=	1799452 kB
-Shmem:           3498692 kB	->	Shmem:           3498768 kB	=	76 kB
-KReclaimable:    8190828 kB	->	KReclaimable:    8190832 kB	=	4 kB
-Slab:            8982084 kB	->	Slab:            8982120 kB	=	36 kB
-SReclaimable:    8190828 kB	->	SReclaimable:    8190832 kB	=	4 kB
-SUnreclaim:       791256 kB	->	SUnreclaim:       791288 kB	=	32 kB
-KernelStack:       79576 kB	->	KernelStack:       79520 kB	=	-56 kB
-PageTables:       218592 kB	->	PageTables:       222684 kB	=	4092 kB
-SecPageTables:         0 kB	->	SecPageTables:         0 kB	=	0 kB
-NFS_Unstable:          0 kB	->	NFS_Unstable:          0 kB	=	0 kB
-Bounce:                0 kB	->	Bounce:                0 kB	=	0 kB
-WritebackTmp:          0 kB	->	WritebackTmp:          0 kB	=	0 kB
-CommitLimit:    32748156 kB	->	CommitLimit:    32748156 kB	=	0 kB
-Committed_AS:   55943300 kB	->	Committed_AS:   56119764 kB	=	176464 kB
-VmallocTotal:   34359738367 kB	->	VmallocTotal:   34359738367 kB	=	0 kB
-VmallocUsed:      225952 kB	->	VmallocUsed:      226112 kB	=	160 kB
-VmallocChunk:          0 kB	->	VmallocChunk:          0 kB	=	0 kB
-Percpu:            29888 kB	->	Percpu:            29888 kB	=	0 kB
-HardwareCorrupted:     0 kB	->	HardwareCorrupted:     0 kB	=	0 kB
-AnonHugePages:    186368 kB	->	AnonHugePages:    190464 kB	=	4096 kB
-ShmemHugePages:  2324480 kB	->	ShmemHugePages:  2324480 kB	=	0 kB
-ShmemPmdMapped:        0 kB	->	ShmemPmdMapped:        0 kB	=	0 kB
-FileHugePages:         0 kB	->	FileHugePages:         0 kB	=	0 kB
-FilePmdMapped:         0 kB	->	FilePmdMapped:         0 kB	=	0 kB
-Unaccepted:            0 kB	->	Unaccepted:            0 kB	=	0 kB
-HugePages_Total:       0	->	HugePages_Total:       0	=	0 
-HugePages_Free:        0	->	HugePages_Free:        0	=	0 
-HugePages_Rsvd:        0	->	HugePages_Rsvd:        0	=	0 
-HugePages_Surp:        0	->	HugePages_Surp:        0	=	0 
-Hugepagesize:       2048 kB	->	Hugepagesize:       2048 kB	=	0 kB
-Hugetlb:               0 kB	->	Hugetlb:               0 kB	=	0 kB
-DirectMap4k:      684064 kB	->	DirectMap4k:      684064 kB	=	0 kB
-DirectMap2M:    30429184 kB	->	DirectMap2M:    30429184 kB	=	0 kB
-DirectMap1G:    35651584 kB	->	DirectMap1G:    35651584 kB	=	0 kB
-8.44user 10.34system 0:06.72elapsed 279%CPU (0avgtext+0avgdata 1844736maxresident)k
-3615608inputs+16outputs (658568major+38578minor)pagefaults 0swaps
-259:0 rbytes=1851203584 wbytes=0 rios=441474 wios=0 dbytes=0 dios=0
-252:0 rbytes=1851203584 wbytes=4096 rios=441474 wios=1 dbytes=0 dios=0
-252:1 rbytes=1851203584 wbytes=0 rios=441474 wios=0 dbytes=0 dios=0
+14.76user 2.05system 0:06.92elapsed 242%CPU (0avgtext+0avgdata 1590280maxresident)k
+1974576inputs+0outputs (5509major+170799minor)pagefaults 0swaps
+259:0 rbytes=1010995200 wbytes=0 rios=4647 wios=0 dbytes=0 dios=0
+252:0 rbytes=1010995200 wbytes=0 rios=4647 wios=0 dbytes=0 dios=0
+252:1 rbytes=1010995200 wbytes=0 rios=4647 wios=0 dbytes=0 dios=0
 ===
 ```

@@ -7,6 +7,7 @@ import (
 	"os"
 
 	"github.com/dgraph-io/badger/v4"
+	"github.com/dgraph-io/badger/v4/options"
 )
 
 const (
@@ -25,11 +26,13 @@ func openBadger(storageDir string, valueLogFileSize int64) (*badger.DB, error) {
 	}
 	const tableLimit = 4
 	badgerOpts := badger.DefaultOptions(storageDir).
-		WithNumMemtables(tableLimit).                // in-memory tables.
-		WithNumLevelZeroTables(tableLimit).          // L0 tables.
+		WithNumMemtables(tableLimit). // in-memory tables.
+		WithNumLevelZeroTables(tableLimit). // L0 tables.
 		WithNumLevelZeroTablesStall(tableLimit * 3). // Maintain the default 1-to-3 ratio before stalling.
 		WithBaseTableSize(int64(16 << 20)).
-		WithValueLogFileSize(valueLogFileSize) // vlog file size.
+		WithValueLogFileSize(valueLogFileSize). // vlog file size.
+		WithCompression(options.None).
+		WithBlockCacheSize(0)
 
 	return badger.Open(badgerOpts)
 }
